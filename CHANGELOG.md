@@ -1,3 +1,10 @@
+### [1.1.1](https://github.com/folke/esbuild-runner/compare/1.1.0...1.1.1) (2020-12-07)
+
+
+### Bug Fixes
+
+* 🐛 renamed esn.js to esr.js ([4caeafd](https://github.com/folke/esbuild-runner/commit/4caeafd768f0d88dfb1dda5d5ab5d9076ce7acde))
+
 ## 1.1.0 (2020-12-07)
 
 
