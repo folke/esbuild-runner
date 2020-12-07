@@ -41,7 +41,7 @@ $ npm install -g esbuild-runner
 * ... or locally in your project
   
 ```shell
-$ npm add esbuild-runner
+$ npm add --dev esbuild-runner
 ```
 
 ## 👋 Contributing
