@@ -50,6 +50,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## ⚖ License
 
-[Apache 2.0](https://github.com/folke/esbuild-runner/blob/master/LICENSE)
+[Apache 2.0](https://github.com/folke/esbuild-runner/blob/main/LICENSE)
 
 <!-- markdownlint-disable-file MD014 MD033 -->
