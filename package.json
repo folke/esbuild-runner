@@ -1,7 +1,7 @@
 {
   "name": "es-node",
   "version": "1.0.0",
-  "description": "Super fast execution with esbuild for node.js using modern JS, TypeSript and JSX",
+  "description": "Super-fast on-the-fly transpilation of modern JS, TypeScript and JSX using esbuild",
   "main": "lib/index.js",
   "keywords": [
     "esbuild",
@@ -18,7 +18,7 @@
     "esn": "./bin/esn.js"
   },
   "author": "Folke Lemaitre",
-  "license": "ISC",
+  "license": "Apache License 2.0",
   "scripts": {
     "clean": "rimraf lib jest.js register.js",
     "lint": "eslint src --ext .ts,.js --cache",
@@ -89,7 +89,7 @@
     "eslint-plugin-prettier": "3.2.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-unicorn": "23.0.0",
-    "husky": "^4.3.4",
+    "husky": "^4.3.5",
     "jest": "^26.6.3",
     "prettier": "2.2.1",
     "release-it": "^14.2.2",
@@ -99,6 +99,6 @@
     "typesync": "^0.8.0"
   },
   "dependencies": {
-    "esbuild": "^0.8.19"
+    "esbuild": "^0.8.20"
   }
 }

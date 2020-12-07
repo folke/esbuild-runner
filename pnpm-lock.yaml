@@ -1,5 +1,5 @@
 dependencies:
-  esbuild: 0.8.19
+  esbuild: 0.8.20
 devDependencies:
   '@release-it/conventional-changelog': 2.0.0_release-it@14.2.2
   '@types/eslint': 7.2.6
@@ -19,7 +19,7 @@ devDependencies:
   eslint-plugin-prettier: 3.2.0_eslint@7.15.0+prettier@2.2.1
   eslint-plugin-promise: 4.2.1
   eslint-plugin-unicorn: 23.0.0_eslint@7.15.0
-  husky: 4.3.4
+  husky: 4.3.5
   jest: 26.6.3
   prettier: 2.2.1
   release-it: 14.2.2
@@ -2348,12 +2348,12 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==
-  /esbuild/0.8.19:
+  /esbuild/0.8.20:
     dev: false
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-KeLnk6TA7yX+KEz9+eDUigJ6ZG5Z7P1pscYdBjlCMuiOFjtbm7/BCHLpLkxfaMT04KwXbS8Lovrzl9rA5xctQg==
+      integrity: sha512-xXNLXa2SraaAoeTybOMAvOf6KW/DthI3ATXMG+W3yMav1iFpEGvo4XS22AzCPE3rTXbK/7TykxpwI8mD6lYUOg==
   /escape-goat/2.1.1:
     dev: true
     engines:
@@ -3398,7 +3398,7 @@ packages:
       node: '>=8.12.0'
     resolution:
       integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
-  /husky/4.3.4:
+  /husky/4.3.5:
     dependencies:
       chalk: 4.1.0
       ci-info: 2.0.0
@@ -3416,7 +3416,7 @@ packages:
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-wykHsss5kQtmbFrjQv0R7YyW1uFd7fv7gT1sA54potoDYmOTENJtBC/X1/AyoSAi1obp8CiGODOIdOGnPxSmFg==
+      integrity: sha512-E5S/1HMoDDaqsH8kDF5zeKEQbYqe3wL9zJDyqyYqc8I4vHBtAoxkDBGXox0lZ9RI+k5GyB728vZdmnM4bYap+g==
   /iconv-lite/0.4.24:
     dependencies:
       safer-buffer: 2.1.2
@@ -7297,7 +7297,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^4.9.0
   '@typescript-eslint/parser': ^4.9.0
   devmoji: ^2.1.12
-  esbuild: ^0.8.19
+  esbuild: ^0.8.20
   eslint: 7.15.0
   eslint-config-prettier: 7.0.0
   eslint-plugin-eslint-comments: 3.2.0
@@ -7307,7 +7307,7 @@ specifiers:
   eslint-plugin-prettier: 3.2.0
   eslint-plugin-promise: 4.2.1
   eslint-plugin-unicorn: 23.0.0
-  husky: ^4.3.4
+  husky: ^4.3.5
   jest: ^26.6.3
   prettier: 2.2.1
   release-it: ^14.2.2
