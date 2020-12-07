@@ -1,7 +1,7 @@
 {
   "name": "es-node",
   "version": "1.0.0",
-  "description": "Super fast execution and REPL with esbuild for node.js using modern JS, TypeSript and JSX",
+  "description": "Super fast execution with esbuild for node.js using modern JS, TypeSript and JSX",
   "main": "lib/index.js",
   "keywords": [
     "esbuild",
@@ -20,15 +20,21 @@
   "author": "Folke Lemaitre",
   "license": "ISC",
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib jest.js register.js",
     "lint": "eslint src --ext .ts,.js --cache",
     "prebuild": "npm run clean && npm run lint",
-    "build": "tsc -b --pretty",
+    "build:dts": "tsc --declaration --emitDeclarationOnly --pretty",
+    "build:js": "esbuild --platform=node --bundle --outdir=lib --sourcemap --target=es2017 --external:esbuild src/index.ts src/cli.ts",
+    "build:jest": "esbuild --platform=node --bundle --outfile=jest.js --target=es2017 --external:esbuild src/jest.ts",
+    "build:register": "esbuild --platform=node --bundle --outfile=register.js --target=es2017 --external:esbuild src/register.ts",
+    "build": "npm run build:dts; npm run build:js; npm run build:jest; npm run build:register",
     "run": "node ."
   },
   "files": [
     "lib",
-    "bin"
+    "bin",
+    "jest.js",
+    "register.js"
   ],
   "husky": {
     "hooks": {
@@ -39,10 +45,33 @@
     "concurrent": [
       "lint",
       "prebuild",
+      "build",
       "ultra"
     ]
   },
+  "release-it": {
+    "hooks": {
+      "before:init": "ultra --color lint",
+      "after:bump": "ultra --color build"
+    },
+    "npm": {
+      "publish": true
+    },
+    "git": {
+      "commitMessage": "chore(release): ${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "conventionalcommits",
+        "infile": "CHANGELOG.md"
+      }
+    }
+  },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^2.0.0",
     "@types/eslint": "7.2.6",
     "@types/eslint-plugin-prettier": "3.1.0",
     "@types/node": "^14.14.10",
@@ -63,6 +92,7 @@
     "husky": "^4.3.4",
     "jest": "^26.6.3",
     "prettier": "2.2.1",
+    "release-it": "^14.2.2",
     "rimraf": "3.0.2",
     "type-fest": "^0.20.2",
     "typescript": "^4.1.2",

@@ -2,3 +2,5 @@ node_modules
 .eslintcache
 .ultra.cache.json
 lib
+jest.js
+register.js
