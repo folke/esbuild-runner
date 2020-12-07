@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "config:base",
+    ":semanticCommits",
+    "group:allApollographql",
+    "group:definitelyTyped",
+    "group:vueMonorepo",
+    "group:nestMonorepo",
+    "group:fortawesome",
+    "group:linters",
+    "group:test",
+    "group:allNonMajor"
+  ],
+  "masterIssue": true,
+  "prHourlyLimit": 20,
+  "packageRules": [
+    {
+      "updateTypes": ["patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
+}
