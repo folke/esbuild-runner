@@ -1,3 +1,10 @@
+### [1.3.1](https://github.com/folke/esbuild-runner/compare/1.3.0...1.3.1) (2020-12-09)
+
+
+### Bug Fixes
+
+* 🐛 show message and exit, after clearing cache ([91aafc0](https://github.com/folke/esbuild-runner/commit/91aafc00b552a7f665f1bce25363c412cf153f92))
+
 ## [1.3.0](https://github.com/folke/esbuild-runner/compare/1.2.0...1.3.0) (2020-12-09)
 
 
