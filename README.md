@@ -2,11 +2,11 @@
 
 Super-fast on-the-fly transpilation of modern JS, TypeScript and JSX using [esbuild](https://github.com/evanw/esbuild).
 
-**esr** makes it easy to run arbitrary code or tests without needing to **build** your whole project. It's a great way to improve your development.
+**esr** makes it easy to run arbitrary code or tests without needing to **build** your whole project. It's a great way to improve your development workflow.
 
 ## ✨ Usage
 
-The easiest way to use **esbuild-runner** is to install it globally and use the included `esn` binary.
+The easiest way to use **esbuild-runner** is to install it globally and use the included `esr` binary.
 
 ```shell
 $ esr hello-world.ts
