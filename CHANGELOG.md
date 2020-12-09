@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/folke/esbuild-runner/compare/1.1.1...1.2.0) (2020-12-09)
+
+
+### Features
+
+* ✨ added support for source maps ([3435f7e](https://github.com/folke/esbuild-runner/commit/3435f7ea02102da8612ba95d9590f0772d58db4d))
+
 ### [1.1.1](https://github.com/folke/esbuild-runner/compare/1.1.0...1.1.1) (2020-12-07)
 
 
