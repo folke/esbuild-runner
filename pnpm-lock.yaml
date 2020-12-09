@@ -1,5 +1,6 @@
 dependencies:
   esbuild: 0.8.20
+  source-map-support: 0.5.19
 devDependencies:
   '@release-it/conventional-changelog': 2.0.0_release-it@14.2.2
   '@types/eslint': 7.2.6
@@ -25,7 +26,6 @@ devDependencies:
   prettier: 2.2.1
   release-it: 14.2.2
   rimraf: 3.0.2
-  source-map-support: 0.5.19
   type-fest: 0.20.2
   typescript: 4.1.2
   typesync: 0.8.0
@@ -1422,7 +1422,6 @@ packages:
     resolution:
       integrity: sha512-gQxTNE/GAfIIrmHLUE3oJyp5FO6HRBfhjnw4/wMmA63ZGDJnWBmgY/lyQBpnDUkGmAhbSe39tx2d/iTOAfglwQ==
   /buffer-from/1.1.1:
-    dev: true
     resolution:
       integrity: sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
   /cache-base/1.0.1:
@@ -6335,7 +6334,6 @@ packages:
     dependencies:
       buffer-from: 1.1.1
       source-map: 0.6.1
-    dev: true
     resolution:
       integrity: sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
   /source-map-url/0.4.0:
@@ -6349,7 +6347,6 @@ packages:
     resolution:
       integrity: sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
   /source-map/0.6.1:
-    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -7302,7 +7299,7 @@ specifiers:
   '@types/node': 14.14.10
   '@types/prettier': 2.1.5
   '@types/rimraf': 3.0.0
-  '@types/source-map-support': ^0.5.3
+  '@types/source-map-support': 0.5.3
   '@typescript-eslint/eslint-plugin': 4.9.0
   '@typescript-eslint/parser': 4.9.0
   devmoji: 2.1.12
