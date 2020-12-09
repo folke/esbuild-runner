@@ -1,11 +1,18 @@
-import { buildSync, Loader, transformSync } from "esbuild"
+import { buildSync, Loader, transformSync, CommonOptions } from "esbuild"
 import fs from "fs"
 import path from "path"
 import { PackageJson } from "type-fest"
+import cache from "./cache"
 
-export type TranspileOptions =
-  | { bundle: true; cache: false }
-  | { bundle: false; cache: boolean }
+export type TranspileOptions = { type: "bundle" | "transform" }
+
+const commonOptions: CommonOptions = {
+  format: "cjs",
+  logLevel: "error",
+  target: [`node${process.version.slice(1)}`],
+  minify: false,
+  sourcemap: "inline",
+}
 
 const pkgPath = path.resolve(".", "package.json")
 let externals: string[] = []
@@ -38,13 +45,11 @@ export function supports(filename: string) {
 
 function _transform(code: string, filename: string): string {
   const ret = transformSync(code, {
-    loader: loaders[path.extname(filename)],
-    format: "cjs",
-    logLevel: "error",
-    target: [`node${process.version.slice(1)}`],
-    minify: false,
-    sourcemap: "inline",
-    sourcefile: filename,
+    ...commonOptions,
+    ...{
+      loader: loaders[path.extname(filename)],
+      sourcefile: filename,
+    },
   })
   return ret.code
 }
@@ -52,55 +57,30 @@ function _transform(code: string, filename: string): string {
 function _bundle(code: string, filename: string): string {
   const ext = path.extname(filename)
   return buildSync({
-    loader: loaders,
-    bundle: true,
-    platform: "node",
-    logLevel: "error",
-    stdin: {
-      sourcefile: filename,
-      contents: code,
-      resolveDir: path.dirname(filename),
-      loader: loaders[ext],
+    ...commonOptions,
+    ...{
+      loader: loaders,
+      bundle: true,
+      platform: "node",
+      stdin: {
+        sourcefile: filename,
+        contents: code,
+        resolveDir: path.dirname(filename),
+        loader: loaders[ext],
+      },
+      external: externals,
+      write: false,
     },
-    external: externals,
-    format: "cjs",
-    target: [`node${process.version.slice(1)}`],
-    minify: false,
-    sourcemap: "inline",
-    write: false,
   })
     .outputFiles.map((f) => f.text)
     .join("\n")
 }
 
-function _transpile(code: string, filename: string, options: TranspileOptions) {
-  return options.bundle ? _bundle(code, filename) : _transform(code, filename)
-}
-
 export function transpile(
   code: string,
   filename: string,
-  options: TranspileOptions = { cache: false, bundle: true }
+  options: TranspileOptions
 ): string {
-  if (options.cache) {
-    const compiledPath = path.resolve(
-      ".",
-      ".build",
-      path.relative(path.resolve("."), filename)
-    )
-    if (
-      !fs.existsSync(compiledPath) ||
-      fs.statSync(compiledPath).mtime < fs.statSync(filename).mtime
-    ) {
-      code = _transpile(code, filename, options)
-      const compiledDir = path.dirname(compiledPath)
-      if (!fs.existsSync(compiledDir))
-        fs.mkdirSync(compiledDir, { recursive: true })
-      fs.writeFileSync(compiledPath, code, { encoding: "utf-8" })
-      return code
-    }
-    return fs.readFileSync(compiledPath, { encoding: "utf-8" })
-  } else {
-    return _transpile(code, filename, options)
-  }
+  if (options.type == "bundle") return _bundle(code, filename)
+  return cache.get(filename, () => _transform(code, filename))
 }

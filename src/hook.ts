@@ -1,5 +1,5 @@
 import InternalModule from "module"
-import { loaders, transpile, supports } from "./esbuild"
+import { loaders, transpile, supports, TranspileOptions } from "./esbuild"
 
 type PatchedModule = InternalModule & {
   _extensions: Record<string, (mod: PatchedModule, filename: string) => void>
@@ -8,7 +8,7 @@ type PatchedModule = InternalModule & {
 
 const Module = (InternalModule as unknown) as PatchedModule
 
-export function install() {
+export function install(options: TranspileOptions = { type: "bundle" }) {
   const defaultLoaderJS = Module._extensions[".js"]
   for (const ext in loaders) {
     const defaultLoader = Module._extensions[ext] || defaultLoaderJS
@@ -18,10 +18,7 @@ export function install() {
         const defaultCompile = mod._compile
         mod._compile = (code: string) => {
           mod._compile = defaultCompile
-          return mod._compile(
-            transpile(code, filename, { bundle: true, cache: false }),
-            filename
-          )
+          return mod._compile(transpile(code, filename, options), filename)
         }
       }
       defaultLoader(mod, filename)
