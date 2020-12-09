@@ -6,6 +6,13 @@ import crypto from "crypto"
 const tmpPath = path.resolve(os.tmpdir(), "esbuild-runner-cache")
 if (!fs.existsSync(tmpPath)) fs.mkdirSync(tmpPath, { recursive: true })
 
+function clear() {
+  if (fs.existsSync(tmpPath)) {
+    fs.rmSync(tmpPath, { recursive: true, force: true })
+    fs.mkdirSync(tmpPath, { recursive: true })
+  }
+}
+
 function get(filename: string, transpiler: () => string) {
   const hash = crypto
     .createHash("md5")
@@ -24,4 +31,4 @@ function get(filename: string, transpiler: () => string) {
   return fs.readFileSync(compiledPath, { encoding: "utf-8" })
 }
 
-export default { get }
+export default { get, clear }

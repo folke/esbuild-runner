@@ -4,7 +4,8 @@ import path from "path"
 import { PackageJson } from "type-fest"
 import cache from "./cache"
 
-export type TranspileOptions = { type: "bundle" | "transform" }
+export type TranspileOptions = { type: "bundle" | "transform"; debug: boolean }
+const defaultOptions: TranspileOptions = { type: "bundle", debug: false }
 
 const commonOptions: CommonOptions = {
   format: "cjs",
@@ -79,8 +80,17 @@ function _bundle(code: string, filename: string): string {
 export function transpile(
   code: string,
   filename: string,
-  options: TranspileOptions
+  _options?: Partial<TranspileOptions>
 ): string {
-  if (options.type == "bundle") return _bundle(code, filename)
-  return cache.get(filename, () => _transform(code, filename))
+  const options: TranspileOptions = { ...defaultOptions, ..._options }
+  if (options.type == "bundle") {
+    if (options.debug) console.log(`📦 ${filename}`)
+    return _bundle(code, filename)
+  } else if (options.type == "transform") {
+    return cache.get(filename, () => {
+      if (options.debug) console.log(`📦 ${filename}`)
+      return _transform(code, filename)
+    })
+  }
+  throw new Error(`Invalid transpilation option ${options.type}`)
 }

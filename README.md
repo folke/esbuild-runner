@@ -28,6 +28,23 @@ module.exports = {
 }
 ```
 
+## ⚙️ Configuration
+
+`esr` provides two different ways to transpile your code:
+
+* **bundling** *(default)*: this transpiles the script and all its dependencies in typically one invocation of **esbuild**. Dependencies defined in `package.json` or `node_modules` will never be transpiled. Running `esr` will **always** transpile the code. No caching is used.
+* **transform** *(`--cache`)*: this method will invoke **esbuild** for **every source file**, but will cache the result. This means that the initial run will be slower, but after that, only changed source files will be transpiled.
+
+```shell
+$ bin/esr.js --help
+Usage: esr [options] <source-file> [file-options]
+
+  --cache       Transform on a file per file basis and cache code
+  --clearCache  Clear transform cache
+  --help|-h     Display this help message
+  
+```
+
 ## 📦 Installation
 
 Simply install the **esbuild-runner** npm package using your favorite package manager.

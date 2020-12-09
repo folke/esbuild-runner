@@ -9,7 +9,7 @@ type PatchedModule = InternalModule & {
 
 const Module = (InternalModule as unknown) as PatchedModule
 
-export function install(options: TranspileOptions = { type: "bundle" }) {
+export function install(options?: Partial<TranspileOptions>) {
   installSourceMapSupport({ hookRequire: true })
   const defaultLoaderJS = Module._extensions[".js"]
   for (const ext in loaders) {
