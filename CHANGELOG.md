@@ -1,3 +1,12 @@
+## [1.3.0](https://github.com/folke/esbuild-runner/compare/1.2.0...1.3.0) (2020-12-09)
+
+
+### Features
+
+* ✨ added esbuild transform --cache ([4ca2415](https://github.com/folke/esbuild-runner/commit/4ca241533d52b7a94388293ad26087f6bbfa0c32))
+* ✨ added option to use transform with caching instead of bundling to the API ([9345b78](https://github.com/folke/esbuild-runner/commit/9345b7838a9733c6b567aefe34aabf6500597674))
+* ✨ enable support for nextjs by transpiling .js files ([5bcc8be](https://github.com/folke/esbuild-runner/commit/5bcc8bef1213f078550701d2c874bc4f37ba7b94))
+
 ## [1.2.0](https://github.com/folke/esbuild-runner/compare/1.1.1...1.2.0) (2020-12-09)
 
 
