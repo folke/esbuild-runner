@@ -31,4 +31,4 @@ function get(filename: string, transpiler: () => string) {
   return fs.readFileSync(compiledPath, { encoding: "utf-8" })
 }
 
-export default { get, clear }
+export default { get, clear, tmpPath }

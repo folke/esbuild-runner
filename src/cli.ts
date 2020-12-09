@@ -1,8 +1,9 @@
+/* eslint-disable no-process-exit */
+import fs from "fs"
 import Module from "module"
 import path from "path"
-import { install } from "./hook"
-import fs from "fs"
 import cache from "./cache"
+import { install } from "./hook"
 
 function help() {
   console.log(`Usage: esr [options] <source-file> [file-options]
@@ -11,7 +12,6 @@ function help() {
   --clearCache  Clear transform cache
   --help|-h     Display this help message
   `)
-  // eslint-disable-next-line no-process-exit
   process.exit(1)
 }
 
@@ -35,7 +35,8 @@ function parseArgs(args: string[] = process.argv) {
       case "--clearCache":
       case "--clear-cache":
         cache.clear()
-        continue
+        console.log(`Cleared ${cache.tmpPath}`)
+        process.exit(0)
 
       case "--cache":
         options.cache = true
