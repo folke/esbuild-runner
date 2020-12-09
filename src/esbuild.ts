@@ -20,7 +20,7 @@ if (fs.existsSync(pkgPath)) {
 }
 
 export const loaders: Record<string, Loader> = {
-  // ".js": "js",
+  ".js": "js",
   ".mjs": "js",
   ".cjs": "js",
   ".jsx": "jsx",
