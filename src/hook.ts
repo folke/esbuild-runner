@@ -1,5 +1,6 @@
 import InternalModule from "module"
 import { loaders, transpile, supports, TranspileOptions } from "./esbuild"
+import { install as installSourceMapSupport } from "source-map-support"
 
 type PatchedModule = InternalModule & {
   _extensions: Record<string, (mod: PatchedModule, filename: string) => void>
@@ -9,6 +10,7 @@ type PatchedModule = InternalModule & {
 const Module = (InternalModule as unknown) as PatchedModule
 
 export function install(options: TranspileOptions = { type: "bundle" }) {
+  installSourceMapSupport({ hookRequire: true })
   const defaultLoaderJS = Module._extensions[".js"]
   for (const ext in loaders) {
     const defaultLoader = Module._extensions[ext] || defaultLoaderJS
