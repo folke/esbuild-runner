@@ -43,7 +43,7 @@ function _transform(code: string, filename: string): string {
     logLevel: "error",
     target: [`node${process.version.slice(1)}`],
     minify: false,
-    sourcemap: true,
+    sourcemap: "inline",
     sourcefile: filename,
   })
   return ret.code
@@ -66,7 +66,7 @@ function _bundle(code: string, filename: string): string {
     format: "cjs",
     target: [`node${process.version.slice(1)}`],
     minify: false,
-    sourcemap: true,
+    sourcemap: "inline",
     write: false,
   })
     .outputFiles.map((f) => f.text)
