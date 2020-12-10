@@ -5,7 +5,7 @@ devDependencies:
   '@release-it/conventional-changelog': 2.0.0_release-it@14.2.2
   '@types/eslint': 7.2.6
   '@types/eslint-plugin-prettier': 3.1.0
-  '@types/node': 14.14.11
+  '@types/node': 14.14.12
   '@types/prettier': 2.1.5
   '@types/rimraf': 3.0.0
   '@types/source-map-support': 0.5.3
@@ -841,10 +841,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-J32dgx2hw8vXrSbu4ZlVhn1Nm3GbeCFNw2FWL8S5QKucHGY0cyNwjdQdO+KMBZ4wpmC7KhLCiNsdk1RFRIYUQQ==
-  /@types/node/14.14.11:
+  /@types/node/14.14.12:
     dev: true
     resolution:
-      integrity: sha512-BJ97wAUuU3NUiUCp44xzUFquQEvnk1wu7q4CMEUYKJWjdkr0YWYDsm4RFtAvxYsNjLsKcrFt6RvK8r+mnzMbEQ==
+      integrity: sha512-ASH8OPHMNlkdjrEdmoILmzFfsJICvhBsFfAum4aKZ/9U4B6M6tTmTPh+f3ttWdD74CEGV5XvXWkbyfSdXaTd7g==
   /@types/normalize-package-data/2.4.0:
     dev: true
     resolution:
@@ -7362,7 +7362,7 @@ specifiers:
   '@release-it/conventional-changelog': 2.0.0
   '@types/eslint': 7.2.6
   '@types/eslint-plugin-prettier': 3.1.0
-  '@types/node': 14.14.11
+  '@types/node': 14.14.12
   '@types/prettier': 2.1.5
   '@types/rimraf': 3.0.0
   '@types/source-map-support': 0.5.3
