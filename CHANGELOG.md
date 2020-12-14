@@ -1,3 +1,10 @@
+### [1.3.2](https://github.com/folke/esbuild-runner/compare/1.3.1...1.3.2) (2020-12-14)
+
+
+### Bug Fixes
+
+* 🐛 use rmdirSync instead of rmSync for compatibility with older nodejs versions ([a57482a](https://github.com/folke/esbuild-runner/commit/a57482a86345be3adb1f1598828de82261ce08a6))
+
 ### [1.3.1](https://github.com/folke/esbuild-runner/compare/1.3.0...1.3.1) (2020-12-09)
 
 
