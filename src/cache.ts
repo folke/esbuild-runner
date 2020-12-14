@@ -8,7 +8,7 @@ if (!fs.existsSync(tmpPath)) fs.mkdirSync(tmpPath, { recursive: true })
 
 function clear() {
   if (fs.existsSync(tmpPath)) {
-    fs.rmSync(tmpPath, { recursive: true, force: true })
+    fs.rmdirSync(tmpPath, { recursive: true })
     fs.mkdirSync(tmpPath, { recursive: true })
   }
 }
@@ -17,6 +17,7 @@ function get(filename: string, transpiler: () => string) {
   const hash = crypto
     .createHash("md5")
     .update(path.resolve(filename))
+    .update(process.version)
     .digest("hex")
 
   const compiledPath = path.resolve(tmpPath, `${hash}.js`)
