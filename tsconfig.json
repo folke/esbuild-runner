@@ -8,7 +8,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "importHelpers": false,
+    "importHelpers": true,
     "isolatedModules": false,
     "jsx": "preserve",
     "module": "CommonJS",
@@ -18,7 +18,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es2019",
+    "target": "ES5",
     "outDir": "lib",
     "rootDir": "src",
     "types": ["node"]

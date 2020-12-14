@@ -23,13 +23,11 @@
   "author": "Folke Lemaitre",
   "license": "Apache License 2.0",
   "scripts": {
-    "clean": "rimraf lib jest.js register.js",
+    "clean": "rimraf lib",
     "lint": "eslint src --ext .ts,.js --cache",
     "prebuild": "npm run clean && npm run lint",
-    "build:dts": "tsc --declaration --emitDeclarationOnly --pretty",
-    "build:lib": "esbuild --platform=node --bundle --outdir=lib --sourcemap --target=es2017 --external:esbuild --external:source-map-support src/index.ts src/cli.ts",
-    "build:main": "esbuild --platform=node --bundle --outdir=. --target=es2017 --external:esbuild --external:source-map-support src/jest.ts src/register.ts",
-    "build": "npm run build:dts; npm run build:lib; npm run build:main",
+    "build:ts": "tsc --pretty",
+    "build": "npm run build:ts",
     "run": "node ."
   },
   "files": [
@@ -102,7 +100,8 @@
     "typesync": "0.8.0"
   },
   "dependencies": {
+    "esbuild": "^0.8.20",
     "source-map-support": "^0.5.19",
-    "esbuild": "^0.8.20"
+    "tslib": "^2.0.3"
   }
 }
