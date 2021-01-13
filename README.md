@@ -28,6 +28,28 @@ module.exports = {
 }
 ```
 
+VSCode Debugging 
+```JSON
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug with esbuild-runner",
+      "program": "${workspaceFolder}/hello-world.ts",
+      "runtimeArgs": [
+        "-r",
+        "esbuild-runner/register"
+      ],
+      "request": "launch",
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "pwa-node"
+    }
+  ]
+}
+```
 ## ⚙️ Configuration
 
 `esr` provides two different ways to transpile your code:
