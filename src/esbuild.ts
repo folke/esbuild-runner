@@ -60,7 +60,6 @@ function _transform(
   filename: string,
   options: TranspileOptions
 ): string {
-  console.log(options)
   const ret = transformSync(code, {
     ...commonOptions,
     ...(options.esbuild as TransformOptions | undefined),
@@ -78,7 +77,6 @@ function _bundle(
   options: TranspileOptions
 ): string {
   const ext = path.extname(filename)
-  console.log(options)
 
   return buildSync({
     ...commonOptions,
@@ -108,10 +106,12 @@ export function transpile(
 ): string {
   const options: TranspileOptions = { ...defaultOptions, ..._options }
   if (options.type == "bundle") {
+    // eslint-disable-next-line no-console
     if (options.debug) console.log(`📦 ${filename}`)
     return _bundle(code, filename, options)
   } else if (options.type == "transform") {
     return cache.get(filename, () => {
+      // eslint-disable-next-line no-console
       if (options.debug) console.log(`📦 ${filename}`)
       return _transform(code, filename, options)
     })

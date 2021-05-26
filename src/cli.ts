@@ -6,6 +6,7 @@ import cache from "./cache"
 import { install } from "./hook"
 
 function help() {
+  // eslint-disable-next-line no-console
   console.log(`Usage: esr [options] <source-file> [file-options]
 
   --cache       Transform on a file per file basis and cache code
@@ -35,6 +36,7 @@ function parseArgs(args: string[] = process.argv) {
       case "--clearCache":
       case "--clear-cache":
         cache.clear()
+        // eslint-disable-next-line no-console
         console.log(`Cleared ${cache.tmpPath}`)
         process.exit(0)
 

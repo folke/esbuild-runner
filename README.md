@@ -67,6 +67,19 @@ Usage: esr [options] <source-file> [file-options]
   
 ```
 
+To customize the options passed to esbuild, you can create an `esbuild.config.js` file in the current directory or one of the ancestor directories.
+
+```js
+// example esbuild.config.js
+module.exports = {
+  type: "bundle", // bundle or transform (see description above)
+  esbuild: {
+    // Any esbuild build or transform options go here
+    target: "esnext"
+  }
+}
+```
+
 ## 📦 Installation
 
 Simply install the **esbuild-runner** npm package using your favorite package manager.

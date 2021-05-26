@@ -42,7 +42,7 @@ module.exports = {
   rules: {
     "import/default": "off",
     "import/no-namespace": "error",
-    "no-console": "off",
+    "no-console": "error",
     "no-debugger": "off",
     "eslint-comments/disable-enable-pair": ["error", { allowWholeFile: true }],
     "node/no-unsupported-features/es-syntax": [
