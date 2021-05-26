@@ -1,3 +1,16 @@
+## [1.4.0](https://github.com/folke/esbuild-runner/compare/1.3.2...1.4.0) (2021-05-26)
+
+
+### Features
+
+* ✨ added config for passing build / transform options to the api [#14](https://github.com/folke/esbuild-runner/issues/14) ([200447e](https://github.com/folke/esbuild-runner/commit/200447e143d59cb263e2a7e51c10666fd1b05feb))
+* ✨ esbuild.config.js [#14](https://github.com/folke/esbuild-runner/issues/14) [#19](https://github.com/folke/esbuild-runner/issues/19) ([9dfb19f](https://github.com/folke/esbuild-runner/commit/9dfb19f8fdead4d56abe4b70fe16bde745fd4d9c))
+
+
+### Bug Fixes
+
+* 🐛 added esbuild as a peer dependency. Fixes [#16](https://github.com/folke/esbuild-runner/issues/16) ([8656874](https://github.com/folke/esbuild-runner/commit/865687436b3a43c5c175d9c852cfc096c45e2735))
+
 ### [1.3.2](https://github.com/folke/esbuild-runner/compare/1.3.1...1.3.2) (2020-12-14)
 
 
