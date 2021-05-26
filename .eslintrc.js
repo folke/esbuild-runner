@@ -68,6 +68,7 @@ module.exports = {
     yoda: "error",
     "prefer-spread": "error",
     "unicorn/filename-case": "off",
+    "unicorn/prefer-node-protocol": "off",
     "unicorn/no-object-as-default-parameter": "off",
     "unicorn/no-reduce": "off",
     "unicorn/no-process-exit": "off",

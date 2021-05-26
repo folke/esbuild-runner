@@ -7,7 +7,7 @@ type PatchedModule = InternalModule & {
   _compile: (code: string, filename: string) => unknown
 }
 
-const Module = (InternalModule as unknown) as PatchedModule
+const Module = InternalModule as unknown as PatchedModule
 
 export function install(options?: Partial<TranspileOptions>) {
   installSourceMapSupport({ hookRequire: true })
