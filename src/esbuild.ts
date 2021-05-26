@@ -1,10 +1,21 @@
-import { buildSync, Loader, transformSync, CommonOptions } from "esbuild"
+import {
+  buildSync,
+  Loader,
+  transformSync,
+  CommonOptions,
+  TransformOptions,
+  BuildOptions,
+} from "esbuild"
 import fs from "fs"
 import path from "path"
 import { PackageJson } from "type-fest"
 import cache from "./cache"
 
-export type TranspileOptions = { type: "bundle" | "transform"; debug: boolean }
+export type TranspileOptions = {
+  type: "bundle" | "transform"
+  debug: boolean
+  esbuild?: CommonOptions | TransformOptions | BuildOptions
+}
 const defaultOptions: TranspileOptions = { type: "bundle", debug: false }
 
 const commonOptions: CommonOptions = {
@@ -44,9 +55,15 @@ export function supports(filename: string) {
   return path.extname(filename) in loaders
 }
 
-function _transform(code: string, filename: string): string {
+function _transform(
+  code: string,
+  filename: string,
+  options: TranspileOptions
+): string {
+  console.log(options)
   const ret = transformSync(code, {
     ...commonOptions,
+    ...(options.esbuild as TransformOptions | undefined),
     ...{
       loader: loaders[path.extname(filename)],
       sourcefile: filename,
@@ -55,10 +72,17 @@ function _transform(code: string, filename: string): string {
   return ret.code
 }
 
-function _bundle(code: string, filename: string): string {
+function _bundle(
+  code: string,
+  filename: string,
+  options: TranspileOptions
+): string {
   const ext = path.extname(filename)
+  console.log(options)
+
   return buildSync({
     ...commonOptions,
+    ...(options.esbuild as BuildOptions | undefined),
     ...{
       loader: loaders,
       bundle: true,
@@ -85,11 +109,11 @@ export function transpile(
   const options: TranspileOptions = { ...defaultOptions, ..._options }
   if (options.type == "bundle") {
     if (options.debug) console.log(`📦 ${filename}`)
-    return _bundle(code, filename)
+    return _bundle(code, filename, options)
   } else if (options.type == "transform") {
     return cache.get(filename, () => {
       if (options.debug) console.log(`📦 ${filename}`)
-      return _transform(code, filename)
+      return _transform(code, filename, options)
     })
   }
   throw new Error(`Invalid transpilation option ${options.type}`)
