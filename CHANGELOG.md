@@ -1,3 +1,14 @@
+## [2.0.0](https://github.com/folke/esbuild-runner/compare/1.4.0...2.0.0) (2021-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* 💥 ♻️ renamed the config file from esbuild.config.js -> esbuild-runner.config.js
+
+### Code Refactoring
+
+* 💥 ♻️ renamed the config file from esbuild.config.js -> esbuild-runner.config.js ([728518d](https://github.com/folke/esbuild-runner/commit/728518d384389ae59dffb42fb1a41e48cabb12d6))
+
 ## [1.4.0](https://github.com/folke/esbuild-runner/compare/1.3.2...1.4.0) (2021-05-26)
 
 
