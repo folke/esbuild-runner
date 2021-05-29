@@ -22,7 +22,7 @@ export function findUp(name: string, cwd = process.cwd()): string | undefined {
 }
 
 function loadConfig() {
-  const configFile = findUp("esbuild.config.js")
+  const configFile = findUp("esbuild-runner.config.js")
   if (configFile) {
     try {
       // eslint-disable-next-line @typescript-eslint/no-var-requires, unicorn/prefer-module
@@ -30,7 +30,9 @@ function loadConfig() {
       return ret
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.error(`[esbuild-runner] could not load "esbuild.config.js"\n`)
+      console.error(
+        `[esbuild-runner] could not load "esbuild-runner.config.js"\n`
+      )
       throw error
     }
   }
