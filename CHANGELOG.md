@@ -1,3 +1,10 @@
+## [2.1.0](https://github.com/folke/esbuild-runner/compare/2.0.0...2.1.0) (2021-06-01)
+
+
+### Features
+
+* ✨ allow overriding esbuild.external [#23](https://github.com/folke/esbuild-runner/issues/23) ([801eb20](https://github.com/folke/esbuild-runner/commit/801eb2015f2ba1f4aa4df06ec02308f6b7fab392))
+
 ## [2.0.0](https://github.com/folke/esbuild-runner/compare/1.4.0...2.0.0) (2021-05-29)
 
 
