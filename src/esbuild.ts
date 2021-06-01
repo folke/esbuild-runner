@@ -14,7 +14,7 @@ import cache from "./cache"
 export type TranspileOptions = {
   type: "bundle" | "transform"
   debug: boolean
-  esbuild?: CommonOptions | TransformOptions | BuildOptions
+  esbuild?: CommonOptions & TransformOptions & BuildOptions
 }
 const defaultOptions: TranspileOptions = { type: "bundle", debug: false }
 
@@ -91,7 +91,7 @@ function _bundle(
         resolveDir: path.dirname(filename),
         loader: loaders[ext],
       },
-      external: externals,
+      external: [...externals, ...(options?.esbuild?.external ?? [])],
       write: false,
     },
   })
