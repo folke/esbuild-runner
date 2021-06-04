@@ -60,6 +60,7 @@ function _transform(
   filename: string,
   options: TranspileOptions
 ): string {
+  const loaders = getLoaders(options)
   const ret = transformSync(code, {
     ...commonOptions,
     ...(options.esbuild as TransformOptions | undefined),
@@ -71,6 +72,15 @@ function _transform(
   return ret.code
 }
 
+function getLoaders(options: TranspileOptions) {
+  const ret = { ...loaders }
+  if (typeof options.esbuild?.loader == "object") {
+    for (const [e, l] of Object.entries(options.esbuild.loader))
+      ret[e] = l as Loader
+  }
+  return ret
+}
+
 function _bundle(
   code: string,
   filename: string,
@@ -78,13 +88,15 @@ function _bundle(
 ): string {
   const ext = path.extname(filename)
 
+  const loaders = getLoaders(options)
+
   return buildSync({
     ...commonOptions,
+    platform: "node",
     ...(options.esbuild as BuildOptions | undefined),
     ...{
       loader: loaders,
       bundle: true,
-      platform: "node",
       stdin: {
         sourcefile: filename,
         contents: code,
