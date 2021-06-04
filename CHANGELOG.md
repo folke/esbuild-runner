@@ -1,3 +1,10 @@
+## [2.2.0](https://github.com/folke/esbuild-runner/compare/2.1.0...2.2.0) (2021-06-04)
+
+
+### Features
+
+* ✨ added support for custom loaders [#24](https://github.com/folke/esbuild-runner/issues/24) ([ad3268e](https://github.com/folke/esbuild-runner/commit/ad3268e1936a350271bfd8706f473f0a8baf1be9))
+
 ## [2.1.0](https://github.com/folke/esbuild-runner/compare/2.0.0...2.1.0) (2021-06-01)
 
 
