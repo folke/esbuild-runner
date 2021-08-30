@@ -1,3 +1,5 @@
+### [2.2.1](https://github.com/folke/esbuild-runner/compare/2.2.0...2.2.1) (2021-08-30)
+
 ## [2.2.0](https://github.com/folke/esbuild-runner/compare/2.1.0...2.2.0) (2021-06-04)
 
 

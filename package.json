@@ -1,6 +1,6 @@
 {
   "name": "esbuild-runner",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Super-fast on-the-fly transpilation of modern JS, TypeScript and JSX using esbuild",
   "repository": "http://github.com/folke/esbuild-runner",
   "main": "lib/index.js",
