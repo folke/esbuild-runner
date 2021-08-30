@@ -64,10 +64,9 @@ function _transform(
   const ret = transformSync(code, {
     ...commonOptions,
     ...(options.esbuild as TransformOptions | undefined),
-    ...{
-      loader: loaders[path.extname(filename)],
-      sourcefile: filename,
-    },
+
+    loader: loaders[path.extname(filename)],
+    sourcefile: filename,
   })
   return ret.code
 }
@@ -94,18 +93,16 @@ function _bundle(
     ...commonOptions,
     platform: "node",
     ...(options.esbuild as BuildOptions | undefined),
-    ...{
-      loader: loaders,
-      bundle: true,
-      stdin: {
-        sourcefile: filename,
-        contents: code,
-        resolveDir: path.dirname(filename),
-        loader: loaders[ext],
-      },
-      external: [...externals, ...(options?.esbuild?.external ?? [])],
-      write: false,
+    loader: loaders,
+    bundle: true,
+    stdin: {
+      sourcefile: filename,
+      contents: code,
+      resolveDir: path.dirname(filename),
+      loader: loaders[ext],
     },
+    external: [...externals, ...(options?.esbuild?.external ?? [])],
+    write: false,
   })
     .outputFiles.map((f) => f.text)
     .join("\n")
