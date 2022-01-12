@@ -95,7 +95,7 @@ $ npm install -g esbuild-runner
 - ... or locally in your project
 
 ```shell
-$ npm add --dev esbuild-runner
+$ yarn add --dev esbuild-runner
 ```
 
 ## 👋 Contributing
