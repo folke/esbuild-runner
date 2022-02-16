@@ -14,6 +14,7 @@ import cache from "./cache"
 export type TranspileOptions = {
   type: "bundle" | "transform"
   debug: boolean
+  cwd?: string
   esbuild?: CommonOptions & TransformOptions & BuildOptions
 }
 const defaultOptions: TranspileOptions = { type: "bundle", debug: false }
@@ -24,18 +25,6 @@ const commonOptions: CommonOptions = {
   target: [`node${process.version.slice(1)}`],
   minify: false,
   sourcemap: "inline",
-}
-
-const pkgPath = path.resolve(".", "package.json")
-let externals: string[] = []
-if (fs.existsSync(pkgPath)) {
-  const pkg = JSON.parse(
-    fs.readFileSync(pkgPath, { encoding: "utf-8" })
-  ) as PackageJson
-  externals = [
-    ...Object.keys(pkg.dependencies ?? {}),
-    ...Object.keys(pkg.devDependencies ?? {}),
-  ]
 }
 
 export const loaders: Record<string, Loader> = {
@@ -101,7 +90,6 @@ function _bundle(
       resolveDir: path.dirname(filename),
       loader: loaders[ext],
     },
-    external: [...externals, ...(options?.esbuild?.external ?? [])],
     write: false,
   })
     .outputFiles.map((f) => f.text)
@@ -113,7 +101,27 @@ export function transpile(
   filename: string,
   _options?: Partial<TranspileOptions>
 ): string {
-  const options: TranspileOptions = { ...defaultOptions, ..._options }
+  const pkgPath = path.resolve(_options?.cwd ?? ".", "package.json")
+  let externals: string[] = []
+  if (fs.existsSync(pkgPath)) {
+    const pkg = JSON.parse(
+      fs.readFileSync(pkgPath, { encoding: "utf-8" })
+    ) as PackageJson
+    externals = [
+      ...Object.keys(pkg.dependencies ?? {}),
+      ...Object.keys(pkg.devDependencies ?? {}),
+    ]
+  } else if (_options?.cwd) {
+    throw new Error(`No package.json found in ${_options?.cwd}`)
+  }
+  const options: TranspileOptions = {
+    ...defaultOptions,
+    ..._options,
+    esbuild: {
+      ..._options?.esbuild,
+      external: [...externals, ...(_options?.esbuild?.external ?? [])],
+    },
+  }
   if (options.type == "bundle") {
     // eslint-disable-next-line no-console
     if (options.debug) console.log(`📦 ${filename}`)
