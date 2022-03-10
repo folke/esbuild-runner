@@ -2,7 +2,7 @@ import { transpile } from "./esbuild"
 import "./register"
 
 function process(src: string, filename: string) {
-  return transpile(src, filename, { type: "transform" })
+  return transpile(src, filename, { type: "transform", useCache: false })
 }
 
 export default { process }

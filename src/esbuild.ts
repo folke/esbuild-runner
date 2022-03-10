@@ -14,9 +14,10 @@ import cache from "./cache"
 export type TranspileOptions = {
   type: "bundle" | "transform"
   debug: boolean
-  esbuild?: CommonOptions & TransformOptions & BuildOptions
+  esbuild?: CommonOptions & TransformOptions & BuildOptions,
+  useCache: boolean,
 }
-const defaultOptions: TranspileOptions = { type: "bundle", debug: false }
+const defaultOptions: TranspileOptions = { type: "bundle", debug: false, useCache: true }
 
 const commonOptions: CommonOptions = {
   format: "cjs",
@@ -119,11 +120,15 @@ export function transpile(
     if (options.debug) console.log(`📦 ${filename}`)
     return _bundle(code, filename, options)
   } else if (options.type == "transform") {
-    return cache.get(filename, () => {
-      // eslint-disable-next-line no-console
-      if (options.debug) console.log(`📦 ${filename}`)
+    if (options.useCache) {
+      return cache.get(filename, () => {
+        // eslint-disable-next-line no-console
+        if (options.debug) console.log(`📦 ${filename}`)
+        return _transform(code, filename, options)
+      })
+    } else {
       return _transform(code, filename, options)
-    })
+    }
   }
   throw new Error(`Invalid transpilation option ${options.type}`)
 }
