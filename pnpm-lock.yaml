@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@release-it/conventional-changelog': 3.3.0
+  '@release-it/conventional-changelog': 4.3.0
   '@types/eslint': 7.28.0
   '@types/eslint-plugin-prettier': 3.1.0
   '@types/node': 16.7.6
@@ -37,7 +37,7 @@ dependencies:
   tslib: 2.3.1
 
 devDependencies:
-  '@release-it/conventional-changelog': 3.3.0_release-it@14.11.5
+  '@release-it/conventional-changelog': 4.3.0_release-it@14.11.5
   '@types/eslint': 7.28.0
   '@types/eslint-plugin-prettier': 3.1.0
   '@types/node': 16.7.6
@@ -797,16 +797,15 @@ packages:
       '@octokit/openapi-types': 9.7.0
     dev: true
 
-  /@release-it/conventional-changelog/3.3.0_release-it@14.11.5:
-    resolution: {integrity: sha512-pchCHf+wNpn15oj2hau4gisFKQat/01JuTzAwlGsQE83ZUBknU4dRlPA3xf5F5f3K70VVTQ3lx4/lgQvR+zxww==}
+  /@release-it/conventional-changelog/4.3.0_release-it@14.11.5:
+    resolution: {integrity: sha512-SAdattAPXyxADh+cWbNqlk7OBWh/SskYCj0hAb5VPmm/wrIR1dQrlKpsUQ/7O0WGGe7uhvj4YB8kVTIZipcc9w==}
     engines: {node: '>=10'}
     peerDependencies:
-      release-it: ^14.11.5
+      release-it: ^14.12.1
     dependencies:
       concat-stream: 2.0.0
-      conventional-changelog: 3.1.24
+      conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
-      prepend-file: 2.0.0
       release-it: 14.11.5
     dev: true
 
@@ -1820,8 +1819,8 @@ packages:
       through2: 4.0.2
     dev: true
 
-  /conventional-changelog/3.1.24:
-    resolution: {integrity: sha512-ed6k8PO00UVvhExYohroVPXcOJ/K1N0/drJHx/faTH37OIZthlecuLIRX/T6uOp682CAoVoFpu+sSEaeuH6Asg==}
+  /conventional-changelog/3.1.25:
+    resolution: {integrity: sha512-ryhi3fd1mKf3fSjbLXOfK2D06YwKNic1nC9mWqybBHdObPd8KJ2vjaXZfYj1U23t+V8T8n0d7gwnc9XbIdFbyQ==}
     engines: {node: '>=10'}
     dependencies:
       conventional-changelog-angular: 5.0.12
@@ -2729,6 +2728,7 @@ packages:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -4704,14 +4704,6 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prepend-file/2.0.0:
-    resolution: {integrity: sha512-U6on3jv5hQ+CNEO7gFn00PUlm3F/oXIQTMg6jpeQTQHLYSZl/Cxb4NpH44FA0By+maPXpfUaqmCoPUTu/Z3/8g==}
-    engines: {node: '>=10.17 <11 || >=11.14'}
-    dependencies:
-      path-exists: 4.0.0
-      temp-write: 4.0.0
-    dev: true
-
   /prepend-http/2.0.0:
     resolution: {integrity: sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=}
     engines: {node: '>=4'}
@@ -5380,22 +5372,6 @@ packages:
       strip-ansi: 6.0.0
     dev: true
 
-  /temp-dir/1.0.0:
-    resolution: {integrity: sha1-CnwOom06Oa+n4OvqnB/AvE2qAR0=}
-    engines: {node: '>=4'}
-    dev: true
-
-  /temp-write/4.0.0:
-    resolution: {integrity: sha512-HIeWmj77uOOHb0QX7siN3OtwV3CTntquin6TNVg6SHOqCP3hYKmox90eeFOGaY1MqJ9WYDDjkyZrW6qS5AWpbw==}
-    engines: {node: '>=8'}
-    dependencies:
-      graceful-fs: 4.2.8
-      is-stream: 2.0.1
-      make-dir: 3.1.0
-      temp-dir: 1.0.0
-      uuid: 3.4.0
-    dev: true
-
   /terminal-link/2.1.1:
     resolution: {integrity: sha512-un0FmiRUQNr5PJqy9kP7c40F5BOfpGlYTrxonDChEZB7pzZxRNp/bt+ymiy9/npwXya9KH99nJ/GXFIiUkYGFQ==}
     engines: {node: '>=8'}
@@ -5627,6 +5603,7 @@ packages:
     resolution: {integrity: sha512-JhS3hmcVaXlp/xSo3PKY5R0JqKs5M3IV+exdLHW99qKvKivPO4Z8qbej6mte17SOPqAOVMjt/XGgWacnFSzM3g==}
     engines: {node: '>=0.8.0'}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -5694,12 +5671,6 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=}
-    dev: true
-
-  /uuid/3.4.0:
-    resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
-    deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
-    hasBin: true
     dev: true
 
   /uuid/8.3.2:
