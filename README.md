@@ -79,6 +79,8 @@ module.exports = {
     // Any esbuild build or transform options go here
     target: "esnext",
   },
+  // Force bundling of specified dependencies
+  // noExternals: [],
 }
 ```
 
