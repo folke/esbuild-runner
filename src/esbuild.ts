@@ -15,6 +15,7 @@ export type TranspileOptions = {
   type: "bundle" | "transform"
   debug: boolean
   esbuild?: CommonOptions & TransformOptions & BuildOptions
+  noExternal?: string[]
 }
 const defaultOptions: TranspileOptions = { type: "bundle", debug: false }
 
@@ -89,6 +90,8 @@ function _bundle(
 
   const loaders = getLoaders(options)
 
+  const resolvedExternals = [...externals, ...(options?.esbuild?.external ?? [])].filter(name => !options?.noExternal?.includes(name))
+
   return buildSync({
     ...commonOptions,
     platform: "node",
@@ -101,7 +104,7 @@ function _bundle(
       resolveDir: path.dirname(filename),
       loader: loaders[ext],
     },
-    external: [...externals, ...(options?.esbuild?.external ?? [])],
+    external: resolvedExternals,
     write: false,
   })
     .outputFiles.map((f) => f.text)
