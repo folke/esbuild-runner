@@ -36,7 +36,7 @@ VSCode Debugging
   "configurations": [
     {
       "name": "Debug with esbuild-runner",
-      "program": "${file}",
+      "program": "${workspaceFolder}/hello-world.ts",
       "runtimeArgs": [
         "-r",
         "esbuild-runner/register"
