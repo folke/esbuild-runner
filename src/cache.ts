@@ -26,10 +26,10 @@ function get(filename: string, transpiler: () => string) {
     fs.statSync(compiledPath).mtime < fs.statSync(filename).mtime
   ) {
     const code = transpiler()
-    fs.writeFileSync(compiledPath, code, { encoding: "utf-8" })
+    fs.writeFileSync(compiledPath, code, { encoding: "utf8" })
     return code
   }
-  return fs.readFileSync(compiledPath, { encoding: "utf-8" })
+  return fs.readFileSync(compiledPath, { encoding: "utf8" })
 }
 
 export default { get, clear, tmpPath }

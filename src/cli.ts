@@ -29,29 +29,35 @@ function parseArgs(args: string[] = process.argv) {
     const arg = args[a]
     switch (arg) {
       case "--help":
-      case "-h":
+      case "-h": {
         help()
         continue
+      }
 
       case "--clearCache":
-      case "--clear-cache":
+      case "--clear-cache": {
         cache.clear()
         // eslint-disable-next-line no-console
         console.log(`Cleared ${cache.tmpPath}`)
         process.exit(0)
+        continue
+      }
 
-      case "--cache":
+      case "--cache": {
         options.cache = true
         continue
+      }
 
-      case "--debug":
+      case "--debug": {
         options.debug = true
         continue
+      }
 
-      default:
+      default: {
         args = args.slice(a)
         args.unshift(nodePath)
         return { options, args }
+      }
     }
   }
   return { options, args: [nodePath] }

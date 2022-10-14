@@ -8,6 +8,7 @@ import {
 } from "esbuild"
 import fs from "fs"
 import path from "path"
+// eslint-disable-next-line import/no-unresolved
 import { PackageJson } from "type-fest"
 import cache from "./cache"
 
@@ -30,7 +31,7 @@ const pkgPath = path.resolve(".", "package.json")
 let externals: string[] = []
 if (fs.existsSync(pkgPath)) {
   const pkg = JSON.parse(
-    fs.readFileSync(pkgPath, { encoding: "utf-8" })
+    fs.readFileSync(pkgPath, { encoding: "utf8" })
   ) as PackageJson
   externals = [
     ...Object.keys(pkg.dependencies ?? {}),
