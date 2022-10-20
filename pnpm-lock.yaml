@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@release-it/conventional-changelog': 5.1.1
-  '@types/eslint': 8.4.6
+  '@types/eslint': 8.4.7
   '@types/eslint-plugin-prettier': 3.1.0
   '@types/node': 18.8.5
   '@types/prettier': 2.7.1
@@ -38,7 +38,7 @@ dependencies:
 
 devDependencies:
   '@release-it/conventional-changelog': 5.1.1_release-it@15.5.0
-  '@types/eslint': 8.4.6
+  '@types/eslint': 8.4.7
   '@types/eslint-plugin-prettier': 3.1.0
   '@types/node': 18.8.5
   '@types/prettier': 2.7.1
@@ -978,11 +978,11 @@ packages:
   /@types/eslint-plugin-prettier/3.1.0:
     resolution: {integrity: sha512-6/UIuz99F0IvtDez4U3bRwAmN4VKnuw10Ibblf0iZhtNbmbonMSLqs/qqsXrGIAWvjy+vXqYwOljgtLhrETSMg==}
     dependencies:
-      '@types/eslint': 8.4.6
+      '@types/eslint': 8.4.7
     dev: true
 
-  /@types/eslint/8.4.6:
-    resolution: {integrity: sha512-/fqTbjxyFUaYNO7VcW5g+4npmqVACz1bB7RTHYuLj+PRjw9hrCwrUXVQFpChUS0JsyEFvMZ7U/PfmvWgxJhI9g==}
+  /@types/eslint/8.4.7:
+    resolution: {integrity: sha512-ehM7cCt2RSFs42mb+lcmhFT9ouIlV92PuaeRGn8N8c98oMjG4Z5pJHA9b1QiCcuqnbPSHcyfiD3mlhqMaHsQIw==}
     dependencies:
       '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
